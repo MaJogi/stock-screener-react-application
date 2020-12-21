@@ -1,11 +1,11 @@
 import React from "react";
-import axios from "axios"
 import {Messages} from "primereact/messages";
 import inputStyle from "../componentStyles/HomeComponentStyle.css";
 import homeComponentStyle from "../componentStyles/HomeComponentStyle.css.js";
 import StockMarket from "../image/StockMarket.PNG";
 import {AutoComplete} from "primereact/autocomplete";
 import {Button} from "primereact/button";
+import UserService from "../services/UserService";
 
 class HomeComponent extends React.Component {
 
@@ -20,7 +20,7 @@ class HomeComponent extends React.Component {
 
     componentDidMount() {
         document.body.style.overflow = "hidden"
-        axios.get("http://localhost:8080/companies")
+        UserService.getPublicContent()
             .then(response => {
                 this.setState({
                     tickers: response.data.map(obj => obj.ticker_id)
@@ -64,10 +64,8 @@ class HomeComponent extends React.Component {
                         Welcome to FinTrust!
                     </h1>
                     <h2 style={homeComponentStyle.h2}>
-                        Your guide to the Tallinn Stock Exchange.
+                        Your guide to the Tallinn Stock Exchange
                     </h2>
-                </div>
-                <div style={homeComponentStyle.lowerContainer}>
                     <Messages ref={(el) => this.messages = el}/>
                     <div style={homeComponentStyle.inputGroup}>
                         <div style={inputStyle} className="p-inputgroup">

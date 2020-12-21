@@ -6,6 +6,14 @@ body .p-menubar {
     border-left-width: 0;
 }
 
+body .p-menuitem {
+    background-color: #404040;
+    border-bottom-width: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-left-width: 0;
+}
+
 body .p-menu .p-menuitem-link
 .p-menuitem-text, body
 .p-menubar .p-menuitem-link
