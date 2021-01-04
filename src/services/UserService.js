@@ -1,35 +1,25 @@
 import axios from 'axios';
-import authHeader from './AuthenticationHeader';
+import AuthenticationService from "./AuthenticationService";
 
 const API_URL = 'http://localhost:8080/';
 
 class UserService {
-    getPublicContent() {
+
+    getUserContent(userId) {
         return axios
-            .get(API_URL + 'companies');
+            .get(API_URL + 'users/'+ userId, { headers: AuthenticationService.getAuthHeader() });
     }
 
-    getCompanyById(ticker_id) {
+    addTicker(userId, tickerId) {
         return axios
-            .get(API_URL + 'companies/' + ticker_id);
-    }
-
-    getUserBoard(user_id) {
-        return axios
-            .get(API_URL + 'users/'+ user_id, { headers: authHeader() });
-    }
-
-    addTicker(user_id, tickerId) {
-        return axios
-            .post(API_URL + "users/" + user_id + "/tickers",
+            .post(API_URL + "users/" + userId + "/tickers",
                 { tickerId },
-                { headers: authHeader() });
+                { headers: AuthenticationService.getAuthHeader() });
     }
 
-    deleteTicker(user_id, ticker_id) {
+    deleteTicker(userId, tickerId) {
         return axios
-            .delete(API_URL + "users/" + user_id + "/tickers/" + ticker_id, { headers: authHeader() });
+            .delete(API_URL + "users/" + userId + "/tickers/" + tickerId, { headers: AuthenticationService.getAuthHeader() });
     }
 }
-
 export default new UserService();

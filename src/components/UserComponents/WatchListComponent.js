@@ -7,6 +7,7 @@ import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
 import UserService from "../../services/UserService";
 import AuthenticationService from "../../services/AuthenticationService";
+import CompanyService from "../../services/CompanyService";
 
 class WatchListComponent extends React.Component {
 
@@ -14,8 +15,8 @@ class WatchListComponent extends React.Component {
         super(props);
         this.state = {
             currentUser: AuthenticationService.getCurrentUser(),
-            ticker_id:"",
-            tickerData: [],
+            tickerId:"",
+            userTickerData: [],
             addTicker: "",
             allTickers: [],
             filteredTickers: []
@@ -26,8 +27,7 @@ class WatchListComponent extends React.Component {
     }
 
     componentDidMount() {
-
-        UserService.getPublicContent()
+        CompanyService.getAllCompanies()
             .then(response => {
                 this.setState({
                     allTickers: response.data.map(obj => obj.ticker_id)
@@ -36,12 +36,12 @@ class WatchListComponent extends React.Component {
 
         const { currentUser } = this.state;
 
-        UserService.getUserBoard(currentUser.id)
+        UserService.getUserContent(currentUser.id)
             .then(
                 response => {
                     if (response.data !== null) {
-                        this.setState({ tickerData: response.data.tickers })
-                    };
+                        this.setState({ userTickerData: response.data.tickers })
+                    }
                 }
             );
     }
@@ -57,19 +57,19 @@ class WatchListComponent extends React.Component {
         }, 250)
     }
 
-    deleteTicker(ticker_id) {
+    deleteTicker(tickerId) {
         const {currentUser} = this.state;
-        UserService.deleteTicker(currentUser.id, ticker_id).then(
+        UserService.deleteTicker(currentUser.id, tickerId).then(
             () => {
                 window.location.reload();
             });
     }
 
-    updateTickerList(ticker_id) {
+    updateTickerList(tickerId) {
         const {currentUser} = this.state;
 
         if (this.state.allTickers.includes(this.state.addTicker.toUpperCase())) {
-            UserService.addTicker(currentUser.id, ticker_id).then(
+            UserService.addTicker(currentUser.id, tickerId).then(
                 () => {
                     window.location.reload();
                 });
@@ -105,12 +105,12 @@ class WatchListComponent extends React.Component {
                 </div>
                 <Messages ref={(el) => this.messages = el}/>
                 <div className="card">
-                    <DataTable value={this.state.tickerData} resizableColumns columnResizeMode="fit">
-                        <Column field="ticker_id" header="Ticker" style={{width:'25%'}}></Column>
-                        <Column field="name" header="Company Name" style={{width:'25%'}}></Column>
+                    <DataTable value={this.state.userTickerData} resizableColumns columnResizeMode="fit">
+                        <Column field="ticker_id" header="Ticker" style={{width:'20%'}}></Column>
+                        <Column field="name" header="Company Name" style={{width:'30%'}}></Column>
                         <Column field="financialsDaily.price" header="Price" style={{width:'15%'}}></Column>
-                        <Column field="industry" header="Industry" style={{width:'25%'}}></Column>
-                        <Column body={this.getRowBody} style={{width:'10%'}}></Column>
+                        <Column field="industry" header="Industry" style={{width:'30%'}}></Column>
+                        <Column body={this.getRowBody} style={{width:'5%'}}></Column>
                     </DataTable>
                 </div>
             </div>

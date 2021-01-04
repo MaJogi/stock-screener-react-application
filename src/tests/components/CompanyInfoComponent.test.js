@@ -1,6 +1,6 @@
 import React from "react";
 import {shallow} from "enzyme";
-import CompanyInfoComponent from "../../components/CompanyInfoComponent";
+import CompanyInfoComponent from "../../components/CompanyComponents/CompanyInfoComponent";
 
 describe('CompanyInfoComponent', () => {
     let wrapper;

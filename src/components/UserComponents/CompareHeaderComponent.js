@@ -1,9 +1,9 @@
 import React from "react";
 import {AutoComplete} from "primereact/autocomplete";
 import {Button} from "primereact/button";
-import UserService from "../../services/UserService";
 import {Messages} from "primereact/messages";
 import CompareChartComponent from "./CompareChartComponent";
+import CompanyService from "../../services/CompanyService";
 
 class CompareHeaderComponent extends React.Component {
 
@@ -27,7 +27,7 @@ class CompareHeaderComponent extends React.Component {
     }
 
     componentDidMount() {
-        UserService.getPublicContent()
+        CompanyService.getAllCompanies()
             .then(response => {
                 this.setState({
                     allTickers: response.data.map(obj => obj.ticker_id)
@@ -50,12 +50,12 @@ class CompareHeaderComponent extends React.Component {
         if (this.state.allTickers.includes(this.state.tickerFirstValue.toUpperCase()) && this.state.allTickers.includes(this.state.tickerSecondValue.toUpperCase())
         && this.state.tickerFirstValue.toUpperCase() !== this.state.tickerSecondValue.toUpperCase()) {
 
-            UserService.getCompanyById(this.state.tickerFirstValue)
+            CompanyService.getCompanyById(this.state.tickerFirstValue)
                 .then(response => {
                     this.setState({tickerFirstSelected: response.data})
                 })
 
-            UserService.getCompanyById(this.state.tickerSecondValue)
+            CompanyService.getCompanyById(this.state.tickerSecondValue)
                 .then(response => {
                     this.setState({tickerSecondSelected: response.data})
                 })

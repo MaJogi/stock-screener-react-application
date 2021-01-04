@@ -3,7 +3,7 @@ import axios from "axios";
 const API_URL = "http://localhost:8080/auth/";
 
 class AuthenticationService {
-    login(username, password) {
+    loginUser(username, password) {
         return axios
             .post(API_URL + "login", {
                 username,
@@ -17,11 +17,11 @@ class AuthenticationService {
             });
     }
 
-    logout() {
+    logoutUser() {
         localStorage.removeItem("user");
     }
 
-    register(username, firstName, lastName, password) {
+    registerUser(username, firstName, lastName, password) {
         return axios
             .post(API_URL + "signup", {
                 username,
@@ -33,6 +33,16 @@ class AuthenticationService {
 
     getCurrentUser() {
         return JSON.parse(localStorage.getItem('user'));;
+    }
+
+    getAuthHeader() {
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        if (user && user.token) {
+            return { Authorization: 'Bearer ' + user.token };
+        } else {
+            return {};
+        }
     }
 }
 export default new AuthenticationService();

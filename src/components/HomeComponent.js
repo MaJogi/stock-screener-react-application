@@ -5,7 +5,7 @@ import homeComponentStyle from "../componentStyles/HomeComponentStyle.css.js";
 import StockMarket from "../image/StockMarket.PNG";
 import {AutoComplete} from "primereact/autocomplete";
 import {Button} from "primereact/button";
-import UserService from "../services/UserService";
+import CompanyService from "../services/CompanyService";
 
 class HomeComponent extends React.Component {
 
@@ -20,7 +20,7 @@ class HomeComponent extends React.Component {
 
     componentDidMount() {
         document.body.style.overflow = "hidden"
-        UserService.getPublicContent()
+        CompanyService.getAllCompanies()
             .then(response => {
                 this.setState({
                     tickers: response.data.map(obj => obj.ticker_id)

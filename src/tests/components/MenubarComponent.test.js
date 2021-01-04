@@ -15,5 +15,7 @@ describe('MenubarComponent', () => {
         expect(mockProps.history.push).toBeCalledWith('/');
         items[1].command();
         expect(mockProps.history.push).toBeCalledWith('/screener');
+        items[2].command();
+        expect(mockProps.history.push).toBeCalledWith('/register');
     })
 })

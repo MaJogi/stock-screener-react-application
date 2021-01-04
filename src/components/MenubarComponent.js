@@ -11,7 +11,6 @@ class MenubarComponent extends React.Component {
         this.logOut = this.logOut.bind(this);
         this.state = {
             currentUser: undefined,
-            showUserBoard: false,
             items: [
                 {
                     label: "Home",
@@ -57,7 +56,7 @@ class MenubarComponent extends React.Component {
     }
 
     logOut() {
-        AuthenticationService.logout();
+        AuthenticationService.logoutUser();
         this.props.history.push("/")
     }
 
