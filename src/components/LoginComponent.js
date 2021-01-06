@@ -68,7 +68,7 @@ class LoginComponent extends React.Component {
                                     className="p-inputtext-lg p-d-block"
                                     name="username"
                                     required={true}
-                                    pattern="^[a-z0-9_-]{2,50}$"
+                                    pattern="^[A-Za-z0-9_-]{2,50}$"
                                     value={this.state.username}
                                     onChange={(e) => this.setState({username: e.target.value})}/>
                             </div>
@@ -83,7 +83,7 @@ class LoginComponent extends React.Component {
                                     className="p-inputtext-lg p-d-block"
                                     name="password"
                                     required={true}
-                                    pattern="^[a-z0-9_-]{6,50}$"
+                                    pattern="^[A-Za-z0-9_-]{6,50}$"
                                     value={this.state.password}
                                     onChange={(e) => this.setState({password: e.target.value})}/>
                             </div>

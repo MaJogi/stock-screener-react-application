@@ -43,7 +43,7 @@ class FinancialsComponent extends React.Component {
             <div className="p-mr-2 p-col">
                 <Fieldset style={fieldSetStyle} legend="Financials" toggleable collapsed={this.state.panelCollapsed} onToggle={(e) => this.setState({panelCollapsed: e.value})}>
                     <h4>Annual Revenue: {millionValue(this.state.ticker.financialsQuarterly.annual_revenue)}</h4>
-                    <h4>Assets: {millionValue(this.state.ticker.financialsQuarterly.assets)}</h4>
+                    <h4 className="assets">Assets: {millionValue(this.state.ticker.financialsQuarterly.assets)}</h4>
                     <h4>Debt: {millionValue(this.state.ticker.financialsQuarterly.debt)}</h4>
                     <h4>EBITDA: {millionValue(this.state.ticker.financialsQuarterly.ebitda)}</h4>
                     <h4>Enterprise Value: {millionValue(this.state.ticker.financialsDaily.ev)}</h4>

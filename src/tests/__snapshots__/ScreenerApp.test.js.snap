@@ -50,6 +50,88 @@ exports[`should take a snapshot 1`] = `
             </span>
           </a>
         </li>
+        <li
+          class="p-menuitem"
+          role="none"
+        >
+          <a
+            aria-haspopup="false"
+            class="p-menuitem-link"
+            href="#"
+            role="menuitem"
+          >
+            <span
+              class="p-menuitem-icon pi pi-user"
+            />
+            <span
+              class="p-menuitem-text"
+            >
+              Register
+            </span>
+          </a>
+        </li>
+        <li
+          class="p-menuitem"
+          role="none"
+        >
+          <a
+            aria-haspopup="true"
+            class="p-menuitem-link"
+            href="#"
+            role="menuitem"
+          >
+            <span
+              class="p-menuitem-icon pi pi-user"
+            />
+            <span
+              class="p-menuitem-text"
+            >
+              User
+            </span>
+            <span
+              class="p-submenu-icon pi pi-fw pi-caret-down"
+            />
+          </a>
+          <ul
+            class="p-submenu-list"
+            role="menu"
+          >
+            <li
+              class="p-menuitem"
+              role="none"
+            >
+              <a
+                aria-haspopup="false"
+                class="p-menuitem-link"
+                href="#"
+                role="menuitem"
+              >
+                <span
+                  class="p-menuitem-text"
+                >
+                  Dashboard
+                </span>
+              </a>
+            </li>
+            <li
+              class="p-menuitem"
+              role="none"
+            >
+              <a
+                aria-haspopup="false"
+                class="p-menuitem-link"
+                href="#"
+                role="menuitem"
+              >
+                <span
+                  class="p-menuitem-text"
+                >
+                  Logout
+                </span>
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
     <div
@@ -58,30 +140,26 @@ exports[`should take a snapshot 1`] = `
       <img
         alt="Stock Market"
         src="StockMarket.PNG"
-        style="position: absolute; width: 100%; height: 50%; opacity: 0.35; z-index: -1;"
+        style="position: absolute; width: 100%; height: 100%; opacity: 0.35; z-index: -1;"
       />
       <div
-        style="width: 100%; height: 50%; text-align: center;"
+        style="width: 100%; height: 100%; text-align: center;"
       >
         <h1
-          style="margin: auto; padding-top: 10vh; width: 100vw; font-size: 8vh;"
+          style="margin: auto; padding-top: 10vh; padding-bottom: 5vh; width: 100vw; font-size: 8vh; font-family: Verdana; color: rgb(0, 0, 0);"
         >
           Welcome to FinTrust!
         </h1>
         <h2
-          style="margin: auto; font-size: 3.5vh;"
+          style="margin: auto; font-size: 3.5vh; font-family: Verdana;"
         >
-          Your guide to the Tallinn Stock Exchange.
+          Your guide to the Tallinn Stock Exchange
         </h2>
-      </div>
-      <div
-        style="width: 100%; height: 50%;"
-      >
         <div>
           <div />
         </div>
         <div
-          style="position: fixed; left: 50%; transform: translate(-50%);"
+          style="position: fixed; left: 50%; transform: translate(-50%); margin-top: 100px;"
         >
           <div
             class="p-inputgroup"
@@ -96,7 +174,7 @@ exports[`should take a snapshot 1`] = `
                 aria-controls="pr_id_1_list"
                 autocomplete="off"
                 class="p-inputtext p-component p-autocomplete-input"
-                placeholder="Search for tickers"
+                placeholder="Search"
                 role="searchbox"
                 type="text"
                 value=""

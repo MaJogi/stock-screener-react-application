@@ -81,8 +81,8 @@ class RegisterComponent extends React.Component {
                                                className="p-inputtext-lg p-d-block"
                                                value={this.state.firstName}
                                                required={true}
-                                               pattern="^[a-z0-9_-]{2,50}$"
-                                               title="Use alphanumeric characters, underscore or dash."
+                                               pattern="[A-Za-z0-9_-]{2,50}"
+                                               title="Use alphanumeric characters, underscore or dash. Minimum 2 characters."
                                                onChange={(e) => this.setState({firstName: e.target.value})}/>
                                 </div>
                                 <div className="p-field p-col-12 p-md-3">
@@ -92,8 +92,8 @@ class RegisterComponent extends React.Component {
                                                className="p-inputtext-lg p-d-block"
                                                value={this.state.lastName}
                                                onChange={(e) => this.setState({lastName: e.target.value})}
-                                               pattern="^[a-z0-9_-]{2,50}"
-                                               title="Use alphanumeric characters, underscore or dash."
+                                               pattern="^[A-Za-z0-9_-]{2,50}$"
+                                               title="Use alphanumeric characters, underscore or dash. Minimum 2 characters."
                                                required={true}/>
                                 </div>
                             </div>
@@ -105,8 +105,8 @@ class RegisterComponent extends React.Component {
                                                className="p-inputtext-lg p-d-block"
                                                value={this.state.username}
                                                onChange={(e) => this.setState({username: e.target.value})}
-                                               pattern="^[a-z0-9_-]{5,20}"
-                                               title="Use alphanumeric characters, underscore or dash."
+                                               pattern="^[A-Za-z0-9_-]{5,20}$"
+                                               title="Use alphanumeric characters, underscore or dash. Minimum 5 characters."
                                                required={true}/>
                                 </div>
                                 <div className="p-field p-col-12 p-md-3">
@@ -122,7 +122,7 @@ class RegisterComponent extends React.Component {
                             </div>
                             <div className="p-field p-grid">
                                 <div>
-                                    <Button label="Create Account" className="p-button-success"></Button>
+                                    <Button id="createAccountButton" label="Create Account" className="p-button-success"></Button>
                                 </div>
                             </div>
                             </Form> }

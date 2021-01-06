@@ -73,7 +73,7 @@ class HomeComponent extends React.Component {
                                           suggestions={this.state.filteredTickers}
                                           completeMethod={this.filterTickers}
                                           size={this.state.tickers.size}
-                                          placeholder={"Search for tickers"}
+                                          placeholder={"Search"}
                                           minLength={1}
                                           onChange={(e) => this.setState({ticker: e.value})}/>
                             <Button icon={"pi pi-search"} onClick={this.onSearch}/>

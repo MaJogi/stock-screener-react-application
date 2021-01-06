@@ -53,14 +53,14 @@ class KeyRatiosComponent extends React.Component {
         return (
             <div className="p-mr-2 p-col">
                 <Fieldset style={fieldSetStyle} legend="Key Ratios" toggleable collapsed={this.state.panelCollapsed} onToggle={(e) => this.setState({panelCollapsed: e.value})}>
-                    <h4>Current Ratio: {value(this.state.ticker.financialsQuarterly.current_ratio)}</h4>
+                    <h4 className="currentRatio">Current Ratio: {value(this.state.ticker.financialsQuarterly.current_ratio)}</h4>
                     <h4>Debt/Equity: {value(this.state.ticker.financialsQuarterly.debt_to_equity)}</h4>
                     <h4>EPS (FY): {value(this.state.ticker.financialsQuarterly.eps_fy)}</h4>
                     <h4>EPS (TTM): {value(this.state.ticker.financialsQuarterly.eps_ttm)}</h4>
                     <h4>EPS Diluted (FY): {value(this.state.ticker.financialsQuarterly.eps_diluted_fy)}</h4>
                     <h4>EPS Diluted (TTM): {value(this.state.ticker.financialsQuarterly.eps_diluted_ttm)}</h4>
                     <h4>EV/EBITDA: {value(this.state.ticker.financialsDaily.ev_ebitda)}</h4>
-                    <h4>Gross Margin: {percentageValue(this.state.ticker.financialsQuarterly.gross_mrq)}</h4>
+                    <h4 className="grossMargin">Gross Margin: {percentageValue(this.state.ticker.financialsQuarterly.gross_mrq)}</h4>
                     <h4>Net Margin: {percentageValue(this.state.ticker.financialsQuarterly.net_mrq)}</h4>
                     <h4>Operating Margin: {percentageValue(this.state.ticker.financialsQuarterly.operating_mrq)}</h4>
                     <h4>Pretax Margin: {percentageValue(this.state.ticker.financialsQuarterly.pretax_mrq)}</h4>

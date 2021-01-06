@@ -1,6 +1,10 @@
 import React from "react";
 import {shallow} from "enzyme";
 import CompanyInfoComponent from "../../components/CompanyComponents/CompanyInfoComponent";
+import DividendsComponent from "../../components/CompanyComponents/DividendsComponent";
+import KeyRatiosComponent from "../../components/CompanyComponents/KeyRatiosComponent";
+import FinancialsComponent from "../../components/CompanyComponents/FinancialsComponent";
+import PerformanceComponent from "../../components/CompanyComponents/PerformanceComponent";
 
 describe('CompanyInfoComponent', () => {
     let wrapper;
@@ -28,6 +32,28 @@ describe('CompanyInfoComponent', () => {
                     </h1>
                 ]),
             );
+        })
+    })
+
+    describe('CompanyInfo subcomponents rendering', () => {
+        it('should render KeyRatiosComponent', async () => {
+            const keyRatiosFieldSet = wrapper.find(KeyRatiosComponent);
+            expect(keyRatiosFieldSet.exists()).toBe(true);
+        })
+
+        it('should render FinancialsComponent', async () => {
+            const financialsFieldSet = wrapper.find(FinancialsComponent);
+            expect(financialsFieldSet.exists()).toBe(true);
+        })
+
+        it('should render PerformanceComponent', async () => {
+            const performanceFieldSet = wrapper.find(PerformanceComponent);
+            expect(performanceFieldSet.exists()).toBe(true);
+        })
+
+        it('should render DividendsComponent', async () => {
+            const dividendsFieldSet = wrapper.find(DividendsComponent);
+            expect(dividendsFieldSet.exists()).toBe(true);
         })
     })
 })

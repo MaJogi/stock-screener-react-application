@@ -51,7 +51,7 @@ class CompareChartComponent extends React.Component {
                 <div className="p-d-flex p-p-3">
                     <div className="p-mr-2 p-col p-card">
                         <h3>{value(this.state.tickerCompareFirst.name)}</h3>
-                        <h4>Ticker: {value(this.state.tickerCompareFirst.ticker_id)}</h4>
+                        <h4 className="tickerId">Ticker: {value(this.state.tickerCompareFirst.ticker_id)}</h4>
                         <h4>Sector: {value(this.state.tickerCompareFirst.sector)}</h4>
                         <h4>Industry: {value(this.state.tickerCompareFirst.industry)}</h4>
                         <h4>Employees: {value(this.state.tickerCompareFirst.employees)}</h4>

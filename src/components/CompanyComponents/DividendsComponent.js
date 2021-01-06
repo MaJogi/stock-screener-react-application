@@ -65,14 +65,12 @@ class DividendsComponent extends React.Component {
 
         return (
             <div className="p-mr-2 p-col">
-                <div className="p-mr-2 p-col">
-                    <Fieldset style={fieldSetStyle} legend="Dividends" toggleable collapsed={this.state.panelCollapsed5} onToggle={(e) => this.setState({panelCollapsed5: e.value})}>
-                        <h4>Dividend Yield: {percentageValue(this.state.ticker.financialsDaily.div_yield)}</h4>
-                        <h4>Dividends Paid: {millionValue(this.state.ticker.financialsQuarterly.div_paid)}</h4>
-                        <h4>Dividends Per Share (FY): {value(this.state.ticker.financialsQuarterly.div_per_share)}</h4>
-                        <h4>Shares: {millionValue(this.state.ticker.financialsQuarterly.shares)}</h4>
-                    </Fieldset>
-                </div>
+                <Fieldset style={fieldSetStyle} legend="Dividends" toggleable collapsed={this.state.panelCollapsed} onToggle={(e) => this.setState({panelCollapsed: e.value})}>
+                    <h4 className="dividendYield">Dividend Yield: {percentageValue(this.state.ticker.financialsDaily.div_yield)}</h4>
+                    <h4>Dividends Paid: {millionValue(this.state.ticker.financialsQuarterly.div_paid)}</h4>
+                    <h4>Dividends Per Share (FY): {value(this.state.ticker.financialsQuarterly.div_per_share)}</h4>
+                    <h4 className="shares">Shares: {millionValue(this.state.ticker.financialsQuarterly.shares)}</h4>
+                </Fieldset>
             </div>
         )
     }
